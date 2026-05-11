@@ -1,0 +1,19 @@
+# SNMP Agent Configuration
+snmp_agent:
+  host: "0.0.0.0"
+  port: 1161  # 使用非特权端口（>1024）
+  community: "public"
+
+# NMS (Network Management Station) Configuration
+nms:
+  agent_host: "127.0.0.1"
+  agent_port: 1161  # 必须与 snmp_agent.port 一致
+  trap_port: 11162
+
+# Thresholds Configuration
+thresholds:
+  cpu: 1           # CPU 使用率阈值（%）80
+  memory: 1        # 内存使用率阈值（%）85
+  disk: 1          # 磁盘使用率阈值（%）90
+  check_interval: 10  # 阈值检查间隔（秒）
+  cooldown: 30     # Trap 发送冷却期（秒）
