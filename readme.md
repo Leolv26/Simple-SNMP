@@ -95,6 +95,8 @@ python -m snmp_monitor.gui
 
 启动 GUI 后，界面主要分为五个区域：左侧 MIB 树、右上 OID 查询表格、右侧控制面板、中部 Dashboard、底部日志面板。
 
+![SNMP Monitor GUI 主界面](assets/snmp_gui.png)
+
 ### 1. Agent 控制
 
 控制面板中包含 Agent 区域：
@@ -128,6 +130,8 @@ python -m snmp_monitor.gui
 - 内存使用率曲线。
 
 NMS worker 会定期对 Agent 发起 GETBULK 请求，将返回的 OID 值转换为指标数据，再通过 `SNMPModel` 驱动 Dashboard 更新。
+
+![SNMP 实时监控曲线与日志](assets/snmp_monitoring.png)
 
 ### 4. MIB 树与 OID 查询
 
@@ -167,6 +171,10 @@ NMS worker 会定期对 Agent 发起 GETBULK 请求，将返回的 OID 值转换
 - **Monitoring → Stop Monitoring**：停止监控。
 - **Monitoring → Threshold Configuration**：打开阈值配置窗口。
 - **Help → About**：查看项目信息。
+
+阈值配置窗口可以调整 CPU、内存、磁盘阈值，便于演示 Trap 告警触发。
+
+![阈值配置窗口](assets/snmp_config.png)
 
 ## 整体架构
 
